@@ -1,7 +1,7 @@
 optimizer:
   name: adam
   lr: 1.0e-4 # not 1e-3
-  weight_decay: 0
+  weight_decay: 1.0e-5
 
 train:
   trainer: trainer
@@ -10,6 +10,7 @@ train:
   save_model: true
   loss: pairwise # bpr
   test_step: 10 # evaluate per {test_step} epochs
+  patience: 10
   # pretrain_path: checkpoint/kgrec/kgrec-last-fm-1689594554.pth
   reproducible: true
   seed: 2020
@@ -22,7 +23,7 @@ test:
 
 data:
   type: kg # choose in {general_cf, multi_behavior, sequential, social, kg}
-  name: last-fm
+  name: mooccube
 
 model:
   name: kgin # case-insensitive

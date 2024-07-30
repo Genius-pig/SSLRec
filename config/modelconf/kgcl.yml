@@ -23,7 +23,7 @@ test:
 
 data:
   type: kg # choose in {general_cf, multi_behavior, sequential, social, kg}
-  name: last-fm
+  name: mooccube
 
 model:
   name: kgcl # case-insensitive

@@ -11,6 +11,7 @@ train:
   loss: pairwise # bpr
   test_step: 10 # evaluate per {test_step} epochs
   # pretrain_path: checkpoint/kgrec/kgrec-last-fm-1689594554.pth
+  patience: 10
   reproducible: true
   seed: 2020
 
@@ -22,7 +23,7 @@ test:
 
 data:
   type: kg # choose in {general_cf, multi_behavior, sequential, social, kg}
-  name: last-fm
+  name: mooccube
 
 model:
   name: kgrec # case-insensitive

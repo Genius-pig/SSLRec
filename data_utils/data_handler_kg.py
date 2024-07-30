@@ -1,3 +1,4 @@
+import networkx as nx
 import torch
 import torch.utils.data as data
 from scipy.sparse import csr_matrix, coo_matrix, dok_matrix
@@ -21,6 +22,8 @@ class DataHandlerKG:
 			predir = './datasets/kg/alibaba-fashion_kg/'
 		elif configs['data']['name'] == 'last-fm':
 			predir = './datasets/kg/last-fm_kg/'
+		elif configs['data']['name'] == 'mooccube':
+			predir = './datasets/kg/mooccube_kg/'
 
 		configs['data']['dir'] = predir
 		self.trn_file = path.join(predir, 'train.txt')
@@ -125,6 +128,7 @@ class DataHandlerKG:
 		kg_edges = list()
 		# u, i
 		ui_edges = list()
+		ckg_graph = nx.MultiDiGraph()
 
 		print("Begin to load interaction triples ...")
 		for u_id, i_id in tqdm(train_data, ascii=True):
@@ -135,8 +139,9 @@ class DataHandlerKG:
 			# h,t,r
 			kg_edges.append([h_id, t_id, r_id])
 			kg_dict[h_id].append((r_id, t_id))
+			ckg_graph.add_edge(h_id, t_id, key=r_id)
 
-		return kg_edges, ui_edges, kg_dict
+		return kg_edges, ui_edges, kg_dict, ckg_graph
 
 	def _build_graphs_diff(self, triplets):
 		kg_dict = defaultdict(list)
@@ -260,7 +265,7 @@ class DataHandlerKG:
 			test_cf = self._read_cf(self.tst_file)
 			self._collect_ui_dict(train_cf, test_cf)
 			kg_triplets = self._read_triplets(self.kg_file)
-			self.kg_edges, self.ui_edges, self.kg_dict = self._build_graphs(train_cf, kg_triplets)
+			self.kg_edges, self.ui_edges, self.kg_dict, self.kg_graph = self._build_graphs(train_cf, kg_triplets)
 			self.ui_mat = self._build_ui_mat(self.ui_edges)
 
 			test_data = KGTestDataset(self.test_user_dict, self.train_user_dict)

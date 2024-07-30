@@ -216,8 +216,8 @@ class KGIN(BaseModel):
         self.edge_index, self.edge_type = self._get_edges(data_handler.kg_edges)
 
         self._init_weight()
-        self.all_embed = nn.Parameter(self.all_embed).to(self.device)
-        self.latent_emb = nn.Parameter(self.latent_emb).to(self.device)
+        self.all_embed = nn.Parameter(self.all_embed)
+        self.latent_emb = nn.Parameter(self.latent_emb)
 
         self.gcn = GraphConv(channel=self.emb_size,
                          n_hops=self.context_hops,
@@ -290,8 +290,8 @@ class KGIN(BaseModel):
 
         loss_dict = {
             "loss": loss.item(),
-            "rec_loss": rec_loss.item(),
-            "reg_loss": reg_loss.item(),
+            # "rec_loss": rec_loss.item(),
+            # "reg_loss": reg_loss.item(),
             "cor": cor.item()
         }
         return loss, loss_dict
