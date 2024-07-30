@@ -8,7 +8,7 @@
 <p align="center">
   <a href="https://github.com/HKUDS/SSLRec/blob/main/docs/User%20Guide.md">🤗User Guide</a> •
   <a href="https://github.com/HKUDS/SSLRec/blob/main/docs/Models.md">🧪Models</a> •
-  <a href="https://github.com/HKUDS/SSLRec/blob/main/docs/Models.md">📜Datasets</a> •
+  <a href="https://github.com/HKUDS/SSLRec/blob/main/docs/Datasets.md">📜Datasets</a> •
   <a href="https://arxiv.org/abs/2308.05697">📑SSLRec Paper</a>
 </p>
 <p align="center">
@@ -17,6 +17,7 @@
   </a>
 </p>
 
+<img src='SSLRec_cover.png' />
 
 **SSLRec** is a PyTorch-based open-source deep learning framework for recommender systems enhanced by self-supervised learning techniques. 
 It's user-friendly and contains commonly-used datasets, code scripts for data processing, training, testing, evaluation, and state-of-the-art research models. 
