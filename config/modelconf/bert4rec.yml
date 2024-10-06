@@ -19,7 +19,7 @@ test:
 
 data:
   type: sequential
-  name: ml-20m
+  name: mooc
 
 model:
   name: bert4rec
