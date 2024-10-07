@@ -5,7 +5,7 @@ optimizer:
 
 train:
   epoch: 30
-  batch_size: 512
+  batch_size: 1024
   test_step: 1 # evaluate per {test_step} epochs
   reproducible: true
   seed: 2023
@@ -15,12 +15,12 @@ train:
 
 test:
   metrics: [recall, ndcg] # choose in {ndcg, recall, precision, mrr}
-  k: [5, 10, 20] # top-k
+  k: [10, 20, 40] # top-k
   batch_size: 512 # How many users per batch during validation
 
 data:
   type: sequential # choose in {general_cf, multi_behavior, sequential, social}
-  name: ml-20m
+  name: mooc
   seq_aug: true
 
 model:
