@@ -4,7 +4,7 @@ optimizer:
   weight_decay: 0
 
 train:
-  epoch: 30
+  epoch: 300
   batch_size: 1024
   test_step: 1 # evaluate per {test_step} epochs
   reproducible: true
@@ -12,6 +12,7 @@ train:
   save_model: true
   trainer: maerec_trainer
   log_loss: false
+  patience: 20
 
 test:
   metrics: [recall, ndcg] # choose in {ndcg, recall, precision, mrr}
