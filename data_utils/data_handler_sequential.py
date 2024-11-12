@@ -19,6 +19,9 @@ class DataHandlerSequential:
         elif configs['data']['name'] == 'mooc':
             predir = './datasets/sequential/mooc_seq/'
             configs['data']['dir'] = predir
+        elif configs['data']['name'] == 'moocX':
+            predir = './datasets/sequential/moocX_seq/'
+            configs['data']['dir'] = predir
             
         self.trn_file = path.join(predir, 'train.tsv')
         self.val_file = path.join(predir, 'test.tsv')
