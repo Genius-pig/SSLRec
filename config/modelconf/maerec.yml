@@ -21,7 +21,7 @@ test:
 
 data:
   type: sequential # choose in {general_cf, multi_behavior, sequential, social}
-  name: mooc
+  name: moocX
   seq_aug: true
 
 model:
