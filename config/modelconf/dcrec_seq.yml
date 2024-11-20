@@ -4,13 +4,14 @@ optimizer:
   weight_decay: 0
 
 train:
-  epoch: 50
+  epoch: 300
   batch_size: 512
   save_model: true
   log_loss: false
   test_step: 1
   reproducible: true
   seed: 2023
+  patience: 10
 
 test:
   metrics: [recall, ndcg]
@@ -19,7 +20,7 @@ test:
 
 data:
   type: sequential
-  name: ml-20m
+  name: mooc
   seq_aug: true
 
 model:
