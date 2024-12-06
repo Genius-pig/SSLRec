@@ -21,6 +21,8 @@ class DataHandlerKG:
 			predir = './datasets/kg/alibaba-fashion_kg/'
 		elif configs['data']['name'] == 'last-fm':
 			predir = './datasets/kg/last-fm_kg/'
+		elif configs['data']['name'] == 'mooc-seq':
+			predir = './datasets/kg/mooc-seq_kg/'
 
 		configs['data']['dir'] = predir
 		self.trn_file = path.join(predir, 'train.txt')

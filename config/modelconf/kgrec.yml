@@ -13,6 +13,8 @@ train:
   # pretrain_path: checkpoint/kgrec/kgrec-last-fm-1689594554.pth
   reproducible: true
   seed: 2020
+  patience: 10
+
 
 test:
   metrics: [recall, ndcg] # choose in {ndcg, recall, precision, mrr}
@@ -22,7 +24,7 @@ test:
 
 data:
   type: kg # choose in {general_cf, multi_behavior, sequential, social, kg}
-  name: last-fm
+  name: mooc-seq
 
 model:
   name: kgrec # case-insensitive
