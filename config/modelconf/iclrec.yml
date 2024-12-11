@@ -12,15 +12,16 @@ train:
   reproducible: true
   seed: 2023
   trainer: iclrec_trainer
+  patience: 10
 
 test:
   metrics: [recall, ndcg]
-  k: [5, 10, 20]
+  k: [10, 20, 40]
   batch_size: 512
 
 data:
   type: sequential
-  name: ml-20m
+  name: moocX
   seq_aug: true
   neg_samp: true
 
