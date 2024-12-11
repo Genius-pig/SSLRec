@@ -20,7 +20,7 @@ test:
 
 data:
   type: sequential
-  name: mooc
+  name: moocX
   seq_aug: true
 
 model:
